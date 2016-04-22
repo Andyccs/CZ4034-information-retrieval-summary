@@ -1,0 +1,34 @@
+\documentclass[11pt,twoside,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{geometry}
+\geometry{
+    left=0.64cm,
+    right=0.64cm,
+    top=0.64cm,
+    bottom=2cm
+}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\graphicspath{ {images/} }
+
+\include{cover}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\titleGM
+
+\begin{multicols*}{2}
+\tableofcontents
+\end{multicols*}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{boolean}
+
+\end{document}
