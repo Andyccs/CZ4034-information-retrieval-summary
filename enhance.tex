@@ -1,0 +1,135 @@
+\chapter{Enhancing Retrieval}
+
+\begin{multicols*}{2}
+
+\noindent Relevance is assessed relative to the user need not the query.
+
+\begin{itemize}
+    \item Precision: fraction of retrieved documents that are relevant
+    \item Recall: fraction of relevant document that are retrieved
+    \item Conservatism: high precision, low recall
+    \item Liberalism: low precision, high recall
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ |c|c c| } 
+    \hline
+     & Relevant & Non relevant \\
+    \hline 
+    Retrieved & TP & FP \\
+    Not retrieved & FN & TN \\
+    \hline
+\end{tabular}
+\end{center}
+
+$$P=\frac{TP}{TP+FP}$$
+$$R=\frac{TP}{TP+FN}$$
+
+\noindent F-measure is weighted harmonic mean of Precision and Recall:
+
+\noindent where:
+\begin{equation*}
+\begin{split}
+    F &=\frac{1}{\alpha \frac{1}{P} + (1-\alpha)\frac{1}{R}} \\
+    &= \frac{2PR}{P+R}, \text{ when } \alpha = 0.5
+\end{split}
+\end{equation*}
+
+\section{Rank-based Measures}
+\noindent We will use the following example for Precision@K, Recall@K and MAP:
+
+\noindent \verb|relevant, not, relevant, not, relevant|
+
+\subsection{Precision@K and Recall@K}
+
+$$\text{Precision@3} = 2 / 3$$
+$$\text{Precision@4} = 2 / 4$$
+$$\text{Precision@5} = 3 / 5$$
+
+\subsection{Mean Average Precision (MAP)}
+
+$$\text{AveragePrecision} = \text{average of P@K}$$
+$$\text{AveragePrecision} = \frac{1}{3} \cdot \Big(\frac{1}{1} + \frac{2}{3} + \frac{3}{5} \Big)$$
+
+\noindent Mean average precision is mean for average precision of multiple queries
+
+\subsection{Normalised Discounted Cumulative Gain}
+
+\noindent Cumulative gain:
+
+$$\text{CG}=r_1 + r_2 + \ldots + r_n$$
+
+\noindent Discounted cumulative gain:
+$$\text{DCG} = \frac{r_1}{log_2 1} \frac{r_2}{log_2 2} + \ldots + \frac{r_n}{log_2 n}$$
+
+\noindent Ideal DCG (IDCG) is calculated using DCG formula, but the documents are sorted based on relevancy before the calculation is done. \\
+
+\noindent Normalise Discounted Cumulative Gain:
+$$\text{nDCG} = \frac{\text{DCG}}{\text{IDCG}}$$
+
+\subsection{Mean Reciprocal Rank (MRR)}
+
+\noindent Consider the rank position of first relevant document as $K$. The reciprocal rank score for the query is $1 / K$. MRR is the mean of all reciprocal rank scores for some queries. 
+
+\section{Inter-judge Agreement and Kappa Measure}
+
+\begin{center}
+\begin{tabular}{ |c|c c| } 
+    \hline
+     & J1: Yes & J1:No \\
+    \hline 
+    J2: Yes & A & B \\
+    J2: No & C & D \\
+    \hline
+\end{tabular}
+\end{center}
+
+$$P(\text{agree}) = \frac{A+D}{A+B+C+D}$$
+$$P(\text{nonrelevant}) = \frac{C + D + B +D}{2(A+B+C+D)}$$
+$$P(\text{relevant}) = \frac{A+B+A+c}{2(A+B+C+D)}$$
+$$P(\text{E}) = P(\text{nonrelevant})^2 + P(\text{relevant})^2$$
+$$\text{Kappa}=\frac{P(A)-P(E)}{1-P(E)}$$
+
+\section{Relevance Feedback}
+
+\noindent Relevance feedback: user feedback on relevance of documents in initial set of results \\
+
+\noindent The centroid is the center of mass of a set of points:
+$$\vec{\mu}(C)=\frac{1}{|C|} \sum_{d\in C} \vec{d}$$
+
+\subsection{Rocchio Algorithm}
+\noindent Try to separate documents marked as relevant and non-relevant, but we don’t know the truly relevant documents:
+
+$$\vec{q}_{opt}=\arg\!\max_{\vec{q}}[ \cos(\vec{q},\vec{\mu}(C_r)) - \cos(\vec{q},\vec{\mu}(C_{nr}))]$$
+
+\noindent Rocchio Algorithm:
+
+$$\vec{q}_m = \alpha \vec{q}_o + \beta \frac{1}{|D_r|} \sum_{\vec{d}_j \in D_r} \vec{d}_j + \gamma \frac{1}{D_{nr}} \sum_{\vec{d}_j \in D_{nr}} \vec{d}_j$$
+
+\subsection{Assumptions of Relevance Feedback}
+
+\noindent Assumption 1: User has sufficient knowledge for initial query \\
+
+\noindent Assumption 2: Relevance prototypes are well-behaved and there is a clear separation between relevant and non-relevant documents\\
+
+\noindent Both assumptions are usually wrong
+
+\subsection{Pseudo Relevance Feedback}
+Automate the manual part. Algorithm:
+\begin{itemize}
+    \item Retrieve a ranked list for user’s query
+    \item Assume that top k documents are relevant
+    \item Do relevance feedback
+\end{itemize}
+
+\section{Query Expansion}
+
+\noindent In query expansion, users give additional input on words or phrases \\
+
+\noindent Thesaurus-based query expansion: for each term in a query, expand the query with synonyms and related words of term from thesaurus. \\
+
+\noindent Co-occurrence thesaurus: two words are similar if they co-occur with similar words \\
+
+\noindent Semantic thesaurus: two words are similar if they occur in a given grammatical relation with the same words
+
+\end{multicols*}
