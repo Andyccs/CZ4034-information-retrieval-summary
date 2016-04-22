@@ -1,0 +1,67 @@
+\chapter{Clustering}
+\begin{multicols*}{2}
+
+\noindent Clustering is the process of grouping a set of objets into classes of similar objects\\
+
+\noindent Ideally, we want similarity of documents are measured based on semantic similarity. However, practically we use euclidean distance and cosine similarity to achieve term-statistical similarity. 
+
+\section{Partition Clustering: K-means Clustering}
+
+\noindent Algorithm:
+\begin{itemize}
+    \item Pick k number of seeds
+    \item Assign each data to the nearest cluster
+    \item Compute centroids for k cluster
+    \item Repeat till converged
+\end{itemize}
+
+\noindent The sum of squared distances from cluster centroid should decrease while repeating:
+$$E=\sum_k \sum_{i \in C_k} (d_i - c_k)^2$$
+
+\section{Hierarchical Agglomerative Clustering}
+\noindent Start with points as individual clusters. At each step, merge the closest pair of clusters until one cluster left. 
+\noindent Algorithm:
+\begin{itemize}
+    \item Compute the proximity matrix
+    \item Let each data point be a cluster
+    \item Repeat:
+    \begin{itemize}
+        \item Merge the two closest clusters
+        \item Update the proximity matrix
+    \end{itemize}
+    \item Until only a single cluster remains
+\end{itemize}
+
+\noindent Four way to update proximity matrix:
+\begin{itemize}
+    \item Single-link: similarity of closest points
+    \item Complete-link: similarity of furthest points
+    \item Centroid: similarity of centroids
+    \item Average-link: Average cosine between pairs of points
+\end{itemize}
+
+\section{Hierarchical Divisive Clustering}
+Start with one cluster. At each step, split a cluster until each cluster contains a point. 
+
+\section{Evaluation}
+\noindent Good clustering means the intra-class similarity is high and inter-class similarity is low. \\
+
+\noindent Purity: the ratio between the dominant class in the cluster and the size of the cluster
+$$j\in C, \text{Purity}(\omega) = \frac{1}{n_i} \text{max}_j (n_{ij})$$
+
+\subsection{Rand Index}
+
+\begin{center}
+\begin{tabular}{ |c|c c| } 
+    \hline
+    Number of points & Same cluster & Different cluster \\
+    \hline 
+    Same Truth & A & C \\
+    Different Truth & B & D \\
+    \hline
+\end{tabular}
+\end{center}
+
+$$RI=\frac{A+D}{A+B+C+D}$$
+
+\end{multicols*}
