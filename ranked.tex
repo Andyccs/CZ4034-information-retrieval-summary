@@ -9,25 +9,25 @@
 
 $$w_{t,d} = 
 \begin{cases}
-    1 + log_{10} tf_{t,d} & tf_{t,d} > 0 \\
+    1 + log_{10} \text{tf}_{t,d} & \text{tf}_{t,d} > 0 \\
     0 & \text{otherwise}
 \end{cases}
 $$
 
 \noindent Document frequency is number of times a term occurs in a collection of documents. Rare term has low document frequency, and is more informative than frequent terms. Inverse document frequency has no effect on one-term queries.
 
-$$idf_t = log_{10} \frac{N}{df_t}$$
+$$\text{idf}_t = log_{10} \frac{N}{\text{df}_t}$$
 
 \noindent TF-IDF weighting: 
 
-$$w_{t,d} = (1+ log_10 tf_{t,d})\times log_{10} \frac{N}{df_t}$$
+$$w_{t,d} = (1+ log_{10} \text{tf}_{t,d})\times log_{10} \frac{N}{\text{df}_t}$$
 
 \noindent SMART Notation: \verb|ddd.qqq|
 \begin{center}
 \includegraphics[width=8cm]{smart-notion}
 \end{center}
 
-\noindent Example: inc.ltc
+\noindent Example: \verb|inc.ltc|
 \begin{center}
 \includegraphics[width=8cm]{smart-notion-example}
 \end{center}
