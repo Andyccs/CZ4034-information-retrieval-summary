@@ -1,0 +1,89 @@
+\chapter{Web Search}
+\begin{multicols*}{2}
+
+\noindent Types of user needs:
+\begin{itemize}
+    \item Informational: want to learn about something
+    \item Navigational: want to go to a page
+    \item Transactional: want to do something
+    \item Gray areas
+\end{itemize}
+
+\noindent Search Engine Optimisation: manipulate page contents to appear high up in search results for selected keywords.
+
+\section{Size of the Web}
+Relative size of search engines, example:
+$$A\cup B = \frac{1}{2} \text{SizeA}  = \frac{1}{6}\text{SizeB}$$
+$$\frac{\text{SizeA}}{\text{SizeB}} = \frac{1}{3}$$
+
+\section{Duplicate Detection}
+\noindent Exact match can be detected with fingerprints. If fingerprints are equal, the pages are identical. \\
+
+\noindent Near-duplication can be detected using shingles (n-grams) and jaccard coefficient. 
+
+\section{Basic Crawler Operation}
+\noindent Algorithm:
+\begin{itemize}
+    \item Begin with known seed URL
+    \item Fetch and parse them and place the extracted URL on a queue
+    \item Fetch each URL on the queue
+    \item Repeat
+\end{itemize}
+
+\noindent Crawler must be polite (only crawl allowed pages and respect robots.txt) and robust
+
+\section{PageRank}
+
+\noindent PageRank of a page $u$ is:
+$$P(u) = \sum_{v \in B_u} \frac{PR(v)}{L_v}$$
+
+\noindent where $B_u$ is the set of pages that point to $u$, and $L_v$ is the number of outgoing links from page $v$.\\
+
+\noindent A Markov chain consists of $N$ states and a transition probability matrix. Transition probability matrix contains the transition from $N$ states to all other $N$ states, forming a $N\times N$ matrix. To build the transition probability matrix:
+
+\begin{itemize}
+    \item If there is a hyperlink from page $i$ to page $j$, then $A_{ij} = 1$
+    \item Divide each 1 in $A$ by the number of 1 in its row
+    \item Multiply the resulting matrix by $1 - \alpha$
+    \item Add $\alpha / N$ to every entry
+\end{itemize}
+\noindent We use teleportation rate $\alpha$ to prevent sticking in a dead end. By doing so, we get an ergodic Markov chain. For any ergodic Markov chain, there is a unique long-term visit rate for each state. 
+
+\section{Hyperlink-induced Topic Search}
+\noindent Relevance type 1: A hub page has a good list of links to pages answering the information need\\
+
+\noindent Relevance type 2: An authority page is a direct answer to the information need\\
+
+\noindent A good hub page links to many authority pages. A good authority page is linked to by many hub pages\\
+
+\noindent To compute the hubs and authorities scores, first initialise $h(d) = a(d) = 1$, then do the following iteratively until converge:
+$$\forall d, h(d) = \sum_{d\rightarrow y} a(y)$$
+$$\forall d, a(d) = \sum_{d\leftarrow y} d(y)$$
+
+\section{Missing List}
+
+\begin{itemize}
+    \item Lecture 2: Example for 3rd approach in context-sensitive correction
+    \item Lecture 2: General issues in spell correction
+    \item Lecture 2: Soundex spell correction
+    \item Lecture 5: Problem of Relevant Feedback
+    \item Lecture 6: Introduction to classification
+    \item Lecture 6: Supervised classification
+    \item Lecture 6: Classification Methods
+    \item Lecture 6: Probability and conditional probability
+    \item Lecture 6: Naive Bayer Learning and Classifying steps
+    \item Lecture 6: Naive Bayes complexity
+    \item Lecture 6: Naive Bayes Pros and Cons
+    \item Lecture 6: Classification using Vector Spaces
+    \item Lecture 6: kNN learning algorithm and discussion
+    \item Lecture 6: Support Vector Machine Formula
+    \item Lecture 6: k-fold cross-validation
+    \item Lecture 7: Partition Clustering, Hierarchical Clustering, Hard and soft clustering
+    \item Lecture 7: Time complexity of k-mean clustering
+    \item Lecture 7: Seed choice for k-mean clustering
+    \item Lecture 7: Total Cost and Total Benefit of k-mean clustering
+    \item Lecture 7: Discriminative labeling
+    \item Lecture 8: History of Search Engine, Anchor text
+\end{itemize}
+
+\end{multicols*}
