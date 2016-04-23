@@ -22,20 +22,20 @@
 \noindent Spelling mistakes can be handled by Soundex, which forms equivalence classes of words based on phonetic heuristics.
 
 \section{Lemmatisation}
-Reduce variant forms to base form. For example:
+Reduce variant forms to base form, while preserves part-of-speech (POS) tags. For example:
 \begin{itemize}
     \item car cars car’s cars’ $\rightarrow$ car
     \item am are is $\rightarrow$ be
 \end{itemize}
+\noindent Lemmatisation reduce variant in noun or verb, but may lead to misunderstanding. 
 
 \section{Stemming}
-\noindent Reduce terms to their “roots”, by crude chopping, while preserves part-of-speech (POS) tags. For example:
+\noindent Reduce terms to their “roots”, by crude chopping. For example:
 \begin{itemize}
     \item automates automatic automation $\rightarrow$ automat
     \item democrats $\rightarrow$ democrat (noun)
-    \item democratised $\rightarrow$ democratize (verb)
+    \item democratized $\rightarrow$ democratize (verb)
 \end{itemize}
-\noindent Lemmatisation reduce variant in noun or verb, but may lead to misunderstanding. 
 
 \section{Wild-card Queries}
 \noindent We want to query \verb|mon*|, means any words that start with \verb|mon|. We can build a binary tree lexicon and retrieve all words in range $\verb|mon|\le w < \verb|moo|$. \\
