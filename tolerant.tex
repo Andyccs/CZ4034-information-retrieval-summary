@@ -57,7 +57,30 @@ Reduce variant forms to base form, while preserves part-of-speech (POS) tags. Fo
 
 \noindent Example of Levenshtein Distance:
 \begin{center}
-\includegraphics[width=8cm]{levenshtein}
+\begin{tabular}{ | l | l  l  l  l  l |} 
+    \hline
+      &   & w & o & r & k \\
+    \hline
+      & 0 & 1 & 2 & 3 & 4 \\
+    w & 1 & 0 & 1 & 2 & 3 \\
+    a & 2 & 1 & 1 & 2 & 3 \\
+    l & 3 & 2 & 2 & 2 & 3 \\
+    k & 4 & 3 & 3 & 3 & \textbf{2} \\
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ | l | l  l  l  l  |} 
+    \hline
+      &   & C & E & E \\
+    \hline
+      & 0 & 1 & 2 & 3 \\
+    S & 1 & 1 & 2 & 3 \\
+    C & 2 & 1 & 2 & 3 \\
+    E & 3 & 2 & 1 & \textbf{2} \\
+    \hline
+\end{tabular}
 \end{center}
 
 \noindent However, there are too many dictionary term to compare. We can cut the candidate terms using n-gram overlap.
