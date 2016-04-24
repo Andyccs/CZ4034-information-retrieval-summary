@@ -2,11 +2,11 @@
 
 \begin{multicols*}{2}
 
-\noindent Relevance is assessed relative to the user need not the query.
+\noindent Relevance is assessed relative to the user need, not the query.
 
 \begin{itemize}
     \item Precision: fraction of retrieved documents that are relevant
-    \item Recall: fraction of relevant document that are retrieved
+    \item Recall: fraction of relevant documents that are retrieved
     \item Conservatism: high precision, low recall
     \item Liberalism: low precision, high recall
 \end{itemize}
@@ -26,8 +26,6 @@ $$P=\frac{TP}{TP+FP}$$
 $$R=\frac{TP}{TP+FN}$$
 
 \noindent F-measure is weighted harmonic mean of Precision and Recall:
-
-\noindent where:
 \begin{equation*}
 \begin{split}
     F &=\frac{1}{\alpha \frac{1}{P} + (1-\alpha)\frac{1}{R}} \\
@@ -104,7 +102,7 @@ $$\vec{q}_{opt}=\arg\!\max_{\vec{q}}[ \cos(\vec{q},\vec{\mu}(C_r)) - \cos(\vec{q
 
 \noindent Rocchio Algorithm:
 
-$$\vec{q}_m = \alpha \vec{q}_o + \beta \frac{1}{|D_r|} \sum_{\vec{d}_j \in D_r} \vec{d}_j + \gamma \frac{1}{D_{nr}} \sum_{\vec{d}_j \in D_{nr}} \vec{d}_j$$
+$$\vec{q}_m = \alpha \vec{q}_o + \beta \frac{1}{|D_r|} \sum_{\vec{d}_j \in D_r} \vec{d}_j - \gamma \frac{1}{D_{nr}} \sum_{\vec{d}_j \in D_{nr}} \vec{d}_j$$
 
 \subsection{Assumptions of Relevance Feedback}
 
