@@ -4,13 +4,13 @@
 
 \noindent Information retrieval is \textit{finding material} (usually documents) of an \textit{unstructured nature} (usually text) that satisfies an information need from within \textit{large collections} (usually stored on computers)
 
-\section{Term-document incidence}
+\section{Term-document Incidence}
 \noindent Value 1 means the existence of a word in a specific document, value 0 otherwise. We treat each document as a boolean vector, and we just need to use boolean operation to answer query. 
 
 \begin{center}
 \begin{tabular}{ |c|c|c|c| } 
     \hline
-     & Document A & DocumentB & Document C \\
+     & DocA & DocB & DocC \\
     \hline 
     Antony & 1 & 1 & 0 \\ 
     Brutus & 1 & 1 & 0 \\
@@ -66,7 +66,7 @@ We compress dictionary because searching begins with the dictionary. \\
 
 \noindent Compression 2: Store pointers to every k-th term string, so we are not storing pointers to each term. However, we need to store extra term lengths for each term. (aka. Blocking)\\
 
-\noindent Compression 3: Since sorted words commonly have long common prefix, we store the differences only. For example, ``automata, automate, automatic, automation'' will be stored as ``8automat*a1*e2*ic3*ion''. (aka. Front coding)
+\noindent Compression 3: Since sorted words commonly have long common prefix, we store the differences only. For example, \verb|automata|, \verb|automate|, \verb|automatic|, \verb|automation| will be stored as \verb|8automat*a1|$\diamond$\verb|e2|$\diamond$\verb|ic3|$\diamond$\verb|ion|. (aka. Front coding)
 
 \subsection{Posting Compression}
 Initially, we store a list of documents in increasing order. To compress posting, we can only store the gaps between each element. 
