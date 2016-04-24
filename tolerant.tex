@@ -43,7 +43,7 @@ Reduce variant forms to base form, while preserves part-of-speech (POS) tags. Fo
 \noindent There are three solution to handle wild-card queries in the middle of query term (\verb|co*tion|). The first solution is by looking up words start with the prefix (\verb|co*|) and find all terms end with the suffix (\verb|tion|). The second solution is by looking up the prefix and suffix in two different binary tree and intersect the two term sets. The last solution is permuterm index. 
 
 \subsection{Permuterm Index}
-\noindent Transform wild-card queries so that the * occurs at the end. For example, for the term hello index under \verb|hello$ ello$h llo$he lo$hel o$hell|. \\
+\noindent Transform wild-card queries so that the * occurs at the end. For example, for the term hello index under \verb|hello$ ello$h llo$he lo$hel o$hell $hello|. \\
 
 \noindent For query processing, we rotate the query wild-card to the right and look up in respective binary tree as before. 
 
