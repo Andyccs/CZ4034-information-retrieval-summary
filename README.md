@@ -2,9 +2,17 @@
 
 This LaTex document is a summary of the course CZ4034 Information Retrieval, offered by School of Computer Science and Engineering, Nanyang Technological University, Singapore. 
 
-To download this document in PDF format: [download now](https://github.com/Andyccs/CZ4034-information-retrieval-summary/releases/download/v1.1/CZ4034InformationRetrievalSummary.pdf)
+To download this document in PDF format: 
+
+- [latest release](https://github.com/Andyccs/CZ4034-information-retrieval-summary/releases)
 
 ## Development
+
+To load this project using Sublime Text 3:
+
+```Shell
+$ subl --project information-retrieval.sublime-project
+```
 
 If you would like to build this document from source, first you need to install TeX:
 
