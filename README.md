@@ -1,3 +1,5 @@
+[![Build Status](https://www.sharelatex.com/github/repos/Andyccs/CZ4034-information-retrieval-summary/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/Andyccs/CZ4034-information-retrieval-summary)
+
 # CZ4034 Information Retrieval Summary
 
 This LaTex document is a summary of the course CZ4034 Information Retrieval, offered by School of Computer Science and Engineering, Nanyang Technological University, Singapore. 
@@ -5,6 +7,7 @@ This LaTex document is a summary of the course CZ4034 Information Retrieval, off
 To download this document in PDF format: 
 
 - [latest release](https://github.com/Andyccs/CZ4034-information-retrieval-summary/releases)
+- [latest build, HEAD](https://www.sharelatex.com/github/repos/Andyccs/CZ4034-information-retrieval-summary/builds/latest/output.pdf)
 
 ## Development
 
